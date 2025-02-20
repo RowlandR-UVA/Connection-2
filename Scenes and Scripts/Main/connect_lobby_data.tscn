@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvqv60cxdk582"]
+
+[ext_resource type="Script" path="res://Scenes and Scripts/Main/connect_lobby_data.gd" id="1_vs0ov"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7fwxq"]
+bg_color = Color(0.15, 0.15, 0.15, 1)
+
+[node name="Connect_Lobby_Data" type="HBoxContainer" groups=["connect_lobby_data"]]
+custom_minimum_size = Vector2(1016, 0)
+theme_override_constants/separation = 10
+script = ExtResource("1_vs0ov")
+
+[node name="Game_Key" type="Label" parent="."]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_7fwxq")
+text = "109775241077849540"
+horizontal_alignment = 1
+
+[node name="Lobby_Name" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_7fwxq")
+text = "Name"
+horizontal_alignment = 1
+
+[node name="Occupancy" type="Label" parent="."]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_7fwxq")
+text = "1/10"
+horizontal_alignment = 1
+
+[node name="Expect_Password" type="Label" parent="."]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_7fwxq")
+text = "False"
+horizontal_alignment = 1
+
+[node name="Join" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 20
+text = "Join"
+
+[connection signal="pressed" from="Join" to="." method="_on_join_pressed"]

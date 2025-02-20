@@ -1,0 +1,871 @@
+[gd_scene load_steps=8 format=3 uid="uid://cat7ph46e15wb"]
+
+[ext_resource type="Script" path="res://Scenes and Scripts/Main/main.gd" id="1_rkrdi"]
+[ext_resource type="PackedScene" uid="uid://cvqv60cxdk582" path="res://Scenes and Scripts/Main/connect_lobby_data.tscn" id="2_hf6dp"]
+[ext_resource type="PackedScene" uid="uid://cti4qtkpsoxp" path="res://Scenes and Scripts/Main/lobby_player_data.tscn" id="3_tb7ht"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_elg8n"]
+bg_color = Color(0.101961, 0.101961, 0.101961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bx641"]
+bg_color = Color(0.1, 0.1, 0.1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xvro5"]
+bg_color = Color(0.1, 0.1, 0.1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cttm6"]
+bg_color = Color(0.1, 0.1, 0.1, 1)
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rkrdi")
+
+[node name="Debug" type="ScrollContainer" parent="."]
+visible = false
+custom_minimum_size = Vector2(1004, 580)
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 1014.0
+offset_bottom = 590.0
+
+[node name="Text" type="Label" parent="Debug"]
+modulate = Color(0, 1, 1, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+autowrap_mode = 3
+
+[node name="Slides" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 1024.0
+offset_bottom = 600.0
+
+[node name="Start" type="Control" parent="Slides"]
+visible = false
+anchors_preset = 0
+offset_right = 1024.0
+offset_bottom = 600.0
+
+[node name="VBox" type="VBoxContainer" parent="Slides/Start"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 5
+
+[node name="Title" type="Label" parent="Slides/Start/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "SCRIPT Connection"
+
+[node name="VBox" type="VBoxContainer" parent="Slides/Start/VBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 5
+
+[node name="Host" type="Button" parent="Slides/Start/VBox/VBox"]
+layout_mode = 2
+size_flags_horizontal = 5
+focus_mode = 0
+theme_override_font_sizes/font_size = 30
+text = "Host"
+
+[node name="Connect" type="Button" parent="Slides/Start/VBox/VBox"]
+layout_mode = 2
+size_flags_horizontal = 5
+focus_mode = 0
+theme_override_font_sizes/font_size = 30
+text = "Connect"
+
+[node name="Quit" type="Button" parent="Slides/Start/VBox/VBox"]
+layout_mode = 2
+size_flags_horizontal = 5
+focus_mode = 0
+theme_override_font_sizes/font_size = 30
+text = "Quit"
+
+[node name="Host" type="Control" parent="Slides"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBox" type="VBoxContainer" parent="Slides/Host"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="Slides/Host/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Host"
+horizontal_alignment = 1
+
+[node name="VBox" type="VBoxContainer" parent="Slides/Host/VBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 15
+
+[node name="VBox" type="VBoxContainer" parent="Slides/Host/VBox/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Lobby_Name" type="HBoxContainer" parent="Slides/Host/VBox/VBox/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="Slides/Host/VBox/VBox/VBox/Lobby_Name"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Lobby Name: "
+
+[node name="Lobby_Name" type="LineEdit" parent="Slides/Host/VBox/VBox/VBox/Lobby_Name" groups=["defocus"]]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+placeholder_text = "Name Here"
+max_length = 20
+expand_to_text_length = true
+
+[node name="Lobby_Size" type="HBoxContainer" parent="Slides/Host/VBox/VBox/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="Slides/Host/VBox/VBox/VBox/Lobby_Size"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Lobby Size: "
+
+[node name="Lobby_Size" type="LineEdit" parent="Slides/Host/VBox/VBox/VBox/Lobby_Size" groups=["defocus"]]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+max_length = 3
+
+[node name="Lobby_Type" type="HBoxContainer" parent="Slides/Host/VBox/VBox/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="Slides/Host/VBox/VBox/VBox/Lobby_Type"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Lobby Type: "
+
+[node name="Lobby_Type" type="OptionButton" parent="Slides/Host/VBox/VBox/VBox/Lobby_Type"]
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 30
+item_count = 5
+selected = 1
+popup/item_0/text = "Public"
+popup/item_0/id = 0
+popup/item_1/text = "Friends Only"
+popup/item_1/id = 1
+popup/item_2/text = "Private"
+popup/item_2/id = 2
+popup/item_3/text = "Private Unique"
+popup/item_3/id = 3
+popup/item_4/text = "Invisible"
+popup/item_4/id = 4
+
+[node name="Password" type="HBoxContainer" parent="Slides/Host/VBox/VBox/VBox"]
+layout_mode = 2
+
+[node name="Password_Check" type="CheckButton" parent="Slides/Host/VBox/VBox/VBox/Password"]
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "Password "
+expand_icon = true
+
+[node name="Password" type="LineEdit" parent="Slides/Host/VBox/VBox/VBox/Password" groups=["defocus"]]
+custom_minimum_size = Vector2(410, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+max_length = 20
+expand_to_text_length = true
+
+[node name="HBox5" type="HBoxContainer" parent="Slides/Host/VBox/VBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="Back_Host" type="Button" parent="Slides/Host/VBox/VBox/HBox5"]
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+theme_override_font_sizes/font_size = 30
+text = "Back"
+
+[node name="Start_Host" type="Button" parent="Slides/Host/VBox/VBox/HBox5"]
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+theme_override_font_sizes/font_size = 30
+text = "Start"
+
+[node name="Error_Msg" type="Label" parent="Slides/Host/VBox/VBox"]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Test Test Test Test Test Test Test Test Test Test Test Test "
+autowrap_mode = 3
+
+[node name="Connect" type="Control" parent="Slides"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1024.0
+offset_bottom = 600.0
+
+[node name="VBox" type="VBoxContainer" parent="Slides/Connect"]
+custom_minimum_size = Vector2(1024, 600)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 5
+
+[node name="Title" type="Label" parent="Slides/Connect/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Connect"
+horizontal_alignment = 1
+
+[node name="Middle" type="VBoxContainer" parent="Slides/Connect/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="HBox" type="HBoxContainer" parent="Slides/Connect/VBox/Middle"]
+layout_mode = 2
+
+[node name="Lobbies" type="Label" parent="Slides/Connect/VBox/Middle/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "Lobbies: 204"
+
+[node name="Search_Distance" type="HBoxContainer" parent="Slides/Connect/VBox/Middle/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="Slides/Connect/VBox/Middle/HBox/Search_Distance"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Search Distance: "
+
+[node name="Search_Distance" type="OptionButton" parent="Slides/Connect/VBox/Middle/HBox/Search_Distance"]
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 20
+item_count = 3
+selected = 0
+popup/item_0/text = "Worldwide"
+popup/item_0/id = 2
+popup/item_1/text = "Far"
+popup/item_1/id = 1
+popup/item_2/text = "Close"
+popup/item_2/id = 0
+
+[node name="Refresh" type="Button" parent="Slides/Connect/VBox/Middle/HBox"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+focus_mode = 0
+theme_override_font_sizes/font_size = 20
+text = "Refresh"
+
+[node name="Tags" type="HBoxContainer" parent="Slides/Connect/VBox/Middle"]
+custom_minimum_size = Vector2(1016, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 10
+
+[node name="Game_Key" type="Label" parent="Slides/Connect/VBox/Middle/Tags"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_elg8n")
+text = "Game Key"
+horizontal_alignment = 1
+
+[node name="Name" type="Label" parent="Slides/Connect/VBox/Middle/Tags"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_bx641")
+text = "Lobby Name"
+horizontal_alignment = 1
+
+[node name="Occupancy" type="Label" parent="Slides/Connect/VBox/Middle/Tags"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_xvro5")
+text = "Size"
+horizontal_alignment = 1
+
+[node name="Password" type="Label" parent="Slides/Connect/VBox/Middle/Tags"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_cttm6")
+text = "Password"
+horizontal_alignment = 1
+
+[node name="Password2" type="Label" parent="Slides/Connect/VBox/Middle/Tags"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_cttm6")
+horizontal_alignment = 1
+
+[node name="Scroll" type="ScrollContainer" parent="Slides/Connect/VBox/Middle"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Msg" type="CenterContainer" parent="Slides/Connect/VBox/Middle/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Msg" type="Label" parent="Slides/Connect/VBox/Middle/Scroll/Msg"]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Offline"
+
+[node name="Lobby_Data_Root" type="VBoxContainer" parent="Slides/Connect/VBox/Middle/Scroll"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="Connect_Lobby_Data" parent="Slides/Connect/VBox/Middle/Scroll/Lobby_Data_Root" instance=ExtResource("2_hf6dp")]
+layout_mode = 2
+
+[node name="Bottom" type="HBoxContainer" parent="Slides/Connect/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Buttons" type="VBoxContainer" parent="Slides/Connect/VBox/Bottom"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="Back_Connect" type="Button" parent="Slides/Connect/VBox/Bottom/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+theme_override_font_sizes/font_size = 25
+text = "Back"
+
+[node name="Quit_Connect" type="Button" parent="Slides/Connect/VBox/Bottom/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+theme_override_font_sizes/font_size = 25
+text = "Quit"
+
+[node name="VBox" type="VBoxContainer" parent="Slides/Connect/VBox/Bottom"]
+layout_mode = 2
+alignment = 1
+
+[node name="Game_Key" type="HBoxContainer" parent="Slides/Connect/VBox/Bottom/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HBox" type="HBoxContainer" parent="Slides/Connect/VBox/Bottom/VBox/Game_Key"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="Slides/Connect/VBox/Bottom/VBox/Game_Key/HBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Game Key: "
+
+[node name="Game_Key" type="LineEdit" parent="Slides/Connect/VBox/Bottom/VBox/Game_Key/HBox" groups=["defocus"]]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "Key: 109775245176183715"
+placeholder_text = "Game Key Here"
+max_length = 24
+expand_to_text_length = true
+
+[node name="Join_Game_Key" type="Button" parent="Slides/Connect/VBox/Bottom/VBox/Game_Key"]
+layout_mode = 2
+size_flags_horizontal = 5
+focus_mode = 0
+theme_override_font_sizes/font_size = 20
+text = "Join"
+
+[node name="Password" type="HBoxContainer" parent="Slides/Connect/VBox/Bottom/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HBox" type="HBoxContainer" parent="Slides/Connect/VBox/Bottom/VBox/Password"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="Slides/Connect/VBox/Bottom/VBox/Password/HBox"]
+modulate = Color(1, 1, 0, 1)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 20
+text = "Password: "
+
+[node name="Password" type="LineEdit" parent="Slides/Connect/VBox/Bottom/VBox/Password/HBox" groups=["defocus"]]
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "273612639123812t3816"
+placeholder_text = "Password Here"
+max_length = 20
+expand_to_text_length = true
+
+[node name="Enter_Password" type="Button" parent="Slides/Connect/VBox/Bottom/VBox/Password"]
+layout_mode = 2
+size_flags_horizontal = 5
+focus_mode = 0
+theme_override_font_sizes/font_size = 20
+text = "Enter"
+
+[node name="Error_Msg" type="Label" parent="Slides/Connect/VBox/Bottom"]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "dwdd wdwdwd wdwd w wdw dw dwd wdw wdw dw dwdw wdw dwdwd wdw dwd wd"
+autowrap_mode = 3
+
+[node name="Lobby" type="Control" parent="Slides"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBox" type="VBoxContainer" parent="Slides/Lobby"]
+custom_minimum_size = Vector2(1024, 600)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 5
+
+[node name="Title" type="Label" parent="Slides/Lobby/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Lobby"
+horizontal_alignment = 1
+
+[node name="TabContainer" type="TabContainer" parent="Slides/Lobby/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 35
+
+[node name="Lobby_Data" type="ScrollContainer" parent="Slides/Lobby/VBox/TabContainer"]
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="Slides/Lobby/VBox/TabContainer/Lobby_Data"]
+custom_minimum_size = Vector2(970, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="HBox" type="HFlowContainer" parent="Slides/Lobby/VBox/TabContainer/Lobby_Data/VBox"]
+layout_mode = 2
+
+[node name="Lobby_Name" type="Label" parent="Slides/Lobby/VBox/TabContainer/Lobby_Data/VBox/HBox"]
+custom_minimum_size = Vector2(520, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "Lobby Name: MadMelon999's Lobby"
+
+[node name="HBox" type="HBoxContainer" parent="Slides/Lobby/VBox/TabContainer/Lobby_Data/VBox/HBox"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="Slides/Lobby/VBox/TabContainer/Lobby_Data/VBox/HBox/HBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Online: "
+horizontal_alignment = 2
+
+[node name="Online" type="Label" parent="Slides/Lobby/VBox/TabContainer/Lobby_Data/VBox/HBox/HBox"]
+modulate = Color(0, 1, 0, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "True"
+
+[node name="Lobby_Type" type="HBoxContainer" parent="Slides/Lobby/VBox/TabContainer/Lobby_Data/VBox/HBox"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="Slides/Lobby/VBox/TabContainer/Lobby_Data/VBox/HBox/Lobby_Type"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Lobby Type: "
+
+[node name="Lobby_Type" type="OptionButton" parent="Slides/Lobby/VBox/TabContainer/Lobby_Data/VBox/HBox/Lobby_Type"]
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 30
+item_count = 5
+selected = 1
+popup/item_0/text = "Public"
+popup/item_0/id = 0
+popup/item_1/text = "Friends Only"
+popup/item_1/id = 1
+popup/item_2/text = "Private"
+popup/item_2/id = 2
+popup/item_3/text = "Private Unique"
+popup/item_3/id = 3
+popup/item_4/text = "Invisible"
+popup/item_4/id = 4
+
+[node name="VBox" type="VBoxContainer" parent="Slides/Lobby/VBox/TabContainer/Lobby_Data/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Game_Key" type="HBoxContainer" parent="Slides/Lobby/VBox/TabContainer/Lobby_Data/VBox/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Game_Key" type="Label" parent="Slides/Lobby/VBox/TabContainer/Lobby_Data/VBox/VBox/Game_Key"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Game Key: 109775244826163889"
+
+[node name="Copy" type="Button" parent="Slides/Lobby/VBox/TabContainer/Lobby_Data/VBox/VBox/Game_Key"]
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 30
+text = "Copy"
+
+[node name="Password" type="Label" parent="Slides/Lobby/VBox/TabContainer/Lobby_Data/VBox/VBox"]
+modulate = Color(1, 1, 0, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Password: None"
+
+[node name="VBox2" type="VBoxContainer" parent="Slides/Lobby/VBox/TabContainer/Lobby_Data/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Lobby_Size" type="HBoxContainer" parent="Slides/Lobby/VBox/TabContainer/Lobby_Data/VBox/VBox2"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="Slides/Lobby/VBox/TabContainer/Lobby_Data/VBox/VBox2/Lobby_Size"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Lobby Size: ("
+
+[node name="Trusted" type="Label" parent="Slides/Lobby/VBox/TabContainer/Lobby_Data/VBox/VBox2/Lobby_Size"]
+modulate = Color(0, 1, 0, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "0 Trusted"
+
+[node name="Label2" type="Label" parent="Slides/Lobby/VBox/TabContainer/Lobby_Data/VBox/VBox2/Lobby_Size"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = " + "
+
+[node name="Untrusted" type="Label" parent="Slides/Lobby/VBox/TabContainer/Lobby_Data/VBox/VBox2/Lobby_Size"]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "0 Untrusted"
+
+[node name="Label3" type="Label" parent="Slides/Lobby/VBox/TabContainer/Lobby_Data/VBox/VBox2/Lobby_Size"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = ") / "
+
+[node name="Total" type="Label" parent="Slides/Lobby/VBox/TabContainer/Lobby_Data/VBox/VBox2/Lobby_Size"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "10 Total"
+
+[node name="HBox" type="HBoxContainer" parent="Slides/Lobby/VBox/TabContainer/Lobby_Data/VBox/VBox2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Slides/Lobby/VBox/TabContainer/Lobby_Data/VBox/VBox2/HBox"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 30
+text = "Lobby Members: "
+
+[node name="Player_Data_Root" type="HFlowContainer" parent="Slides/Lobby/VBox/TabContainer/Lobby_Data/VBox/VBox2/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 0
+
+[node name="Lobby Player Data" parent="Slides/Lobby/VBox/TabContainer/Lobby_Data/VBox/VBox2/HBox/Player_Data_Root" instance=ExtResource("3_tb7ht")]
+layout_mode = 2
+
+[node name="Lobby Player Data2" parent="Slides/Lobby/VBox/TabContainer/Lobby_Data/VBox/VBox2/HBox/Player_Data_Root" instance=ExtResource("3_tb7ht")]
+layout_mode = 2
+
+[node name="Lobby Player Data3" parent="Slides/Lobby/VBox/TabContainer/Lobby_Data/VBox/VBox2/HBox/Player_Data_Root" instance=ExtResource("3_tb7ht")]
+layout_mode = 2
+
+[node name="Lobby Player Data4" parent="Slides/Lobby/VBox/TabContainer/Lobby_Data/VBox/VBox2/HBox/Player_Data_Root" instance=ExtResource("3_tb7ht")]
+layout_mode = 2
+
+[node name="Lobby Player Data5" parent="Slides/Lobby/VBox/TabContainer/Lobby_Data/VBox/VBox2/HBox/Player_Data_Root" instance=ExtResource("3_tb7ht")]
+layout_mode = 2
+
+[node name="Kicked" type="Label" parent="Slides/Lobby/VBox/TabContainer/Lobby_Data/VBox/VBox2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Kicked: MadMelon999"
+
+[node name="Sync" type="ScrollContainer" parent="Slides/Lobby/VBox/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="HBox" type="HBoxContainer" parent="Slides/Lobby/VBox/TabContainer/Sync"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Names" type="VBoxContainer" parent="Slides/Lobby/VBox/TabContainer/Sync/HBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="Tag" type="Label" parent="Slides/Lobby/VBox/TabContainer/Sync/HBox/Names"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Name"
+
+[node name="Root" type="VBoxContainer" parent="Slides/Lobby/VBox/TabContainer/Sync/HBox/Names"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Tag" type="Label" parent="Slides/Lobby/VBox/TabContainer/Sync/HBox/Names/Root"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "MadMelon999"
+
+[node name="Tag2" type="Label" parent="Slides/Lobby/VBox/TabContainer/Sync/HBox/Names/Root"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Uwu Uwu"
+
+[node name="Latency" type="VBoxContainer" parent="Slides/Lobby/VBox/TabContainer/Sync/HBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="Tag" type="Label" parent="Slides/Lobby/VBox/TabContainer/Sync/HBox/Latency"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Latency"
+
+[node name="Root" type="VBoxContainer" parent="Slides/Lobby/VBox/TabContainer/Sync/HBox/Latency"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Tag" type="Label" parent="Slides/Lobby/VBox/TabContainer/Sync/HBox/Latency/Root"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "MadMelon999"
+
+[node name="Tag2" type="Label" parent="Slides/Lobby/VBox/TabContainer/Sync/HBox/Latency/Root"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Uwu Uwu"
+
+[node name="Inputs_Pressed" type="VBoxContainer" parent="Slides/Lobby/VBox/TabContainer/Sync/HBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="Tag" type="Label" parent="Slides/Lobby/VBox/TabContainer/Sync/HBox/Inputs_Pressed"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Inputs_Pressed"
+
+[node name="Root" type="VBoxContainer" parent="Slides/Lobby/VBox/TabContainer/Sync/HBox/Inputs_Pressed"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Tag" type="Label" parent="Slides/Lobby/VBox/TabContainer/Sync/HBox/Inputs_Pressed/Root"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "MadMelon999"
+
+[node name="Tag2" type="Label" parent="Slides/Lobby/VBox/TabContainer/Sync/HBox/Inputs_Pressed/Root"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Uwu Uwu"
+
+[node name="Send_Scheme_Test" type="ScrollContainer" parent="Slides/Lobby/VBox/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="Slides/Lobby/VBox/TabContainer/Send_Scheme_Test"]
+custom_minimum_size = Vector2(970, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="Slides/Lobby/VBox/TabContainer/Send_Scheme_Test/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="SS_Test" type="Button" parent="Slides/Lobby/VBox/TabContainer/Send_Scheme_Test/VBox/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+theme_override_font_sizes/font_size = 30
+text = "Start Test"
+
+[node name="Copy_SS_CSV" type="Button" parent="Slides/Lobby/VBox/TabContainer/Send_Scheme_Test/VBox/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+theme_override_font_sizes/font_size = 30
+text = "Copy SS CSV"
+
+[node name="Data1" type="HBoxContainer" parent="Slides/Lobby/VBox/TabContainer/Send_Scheme_Test/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Compression" type="Label" parent="Slides/Lobby/VBox/TabContainer/Send_Scheme_Test/VBox/Data1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Compression: gzip"
+
+[node name="P2P_Send" type="Label" parent="Slides/Lobby/VBox/TabContainer/Send_Scheme_Test/VBox/Data1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "P2P_Send: Reliable"
+
+[node name="Data2" type="HBoxContainer" parent="Slides/Lobby/VBox/TabContainer/Send_Scheme_Test/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Step" type="Label" parent="Slides/Lobby/VBox/TabContainer/Send_Scheme_Test/VBox/Data2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Completion: 17.3%"
+
+[node name="Size" type="Label" parent="Slides/Lobby/VBox/TabContainer/Send_Scheme_Test/VBox/Data2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Size (b): 888"
+
+[node name="Data3" type="HBoxContainer" parent="Slides/Lobby/VBox/TabContainer/Send_Scheme_Test/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Total_Time" type="Label" parent="Slides/Lobby/VBox/TabContainer/Send_Scheme_Test/VBox/Data3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Time one-way (msec): 0"
+
+[node name="Lossiness" type="Label" parent="Slides/Lobby/VBox/TabContainer/Send_Scheme_Test/VBox/Data3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Lossiness: 80%"
+
+[node name="Buttons" type="HBoxContainer" parent="Slides/Lobby/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Quit_Lobby" type="Button" parent="Slides/Lobby/VBox/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+theme_override_font_sizes/font_size = 30
+text = "Quit"
+
+[node name="Lock_Lobby" type="CheckButton" parent="Slides/Lobby/VBox/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 0
+theme_override_font_sizes/font_size = 30
+text = "Lock Lobby"
+expand_icon = true
+
+[node name="Change_Scene" type="Button" parent="Slides/Lobby/VBox/Buttons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Change Scene"
+
+[node name="Input_Shield" type="CenterContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 600.0
+
+[node name="Backdrop" type="ColorRect" parent="Input_Shield"]
+custom_minimum_size = Vector2(1024, 600)
+layout_mode = 2
+color = Color(0, 0, 0, 0.501961)
+
+[node name="Msg" type="Label" parent="Input_Shield"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Msg Here"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[connection signal="pressed" from="Slides/Start/VBox/VBox/Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="Slides/Start/VBox/VBox/Connect" to="." method="_on_connect_pressed"]
+[connection signal="pressed" from="Slides/Start/VBox/VBox/Quit" to="." method="_on_quit_pressed"]
+[connection signal="text_submitted" from="Slides/Host/VBox/VBox/VBox/Lobby_Name/Lobby_Name" to="." method="_line_edit_text_submitted"]
+[connection signal="text_submitted" from="Slides/Host/VBox/VBox/VBox/Lobby_Size/Lobby_Size" to="." method="_line_edit_text_submitted"]
+[connection signal="pressed" from="Slides/Host/VBox/VBox/VBox/Password/Password_Check" to="." method="_on_password_check_pressed"]
+[connection signal="text_submitted" from="Slides/Host/VBox/VBox/VBox/Password/Password" to="." method="_line_edit_text_submitted"]
+[connection signal="pressed" from="Slides/Host/VBox/VBox/HBox5/Back_Host" to="." method="_on_back_host_pressed"]
+[connection signal="pressed" from="Slides/Host/VBox/VBox/HBox5/Start_Host" to="." method="_on_start_host_pressed"]
+[connection signal="item_selected" from="Slides/Connect/VBox/Middle/HBox/Search_Distance/Search_Distance" to="." method="_on_search_distance_item_selected"]
+[connection signal="pressed" from="Slides/Connect/VBox/Middle/HBox/Refresh" to="." method="_on_refresh_pressed"]
+[connection signal="pressed" from="Slides/Connect/VBox/Bottom/Buttons/Back_Connect" to="." method="_on_back_connect_pressed"]
+[connection signal="pressed" from="Slides/Connect/VBox/Bottom/Buttons/Quit_Connect" to="." method="_on_quit_connect_pressed"]
+[connection signal="text_changed" from="Slides/Connect/VBox/Bottom/VBox/Game_Key/HBox/Game_Key" to="." method="_on_game_key_text_changed"]
+[connection signal="text_submitted" from="Slides/Connect/VBox/Bottom/VBox/Game_Key/HBox/Game_Key" to="." method="_line_edit_text_submitted"]
+[connection signal="pressed" from="Slides/Connect/VBox/Bottom/VBox/Game_Key/Join_Game_Key" to="." method="_on_join_game_key_pressed"]
+[connection signal="text_changed" from="Slides/Connect/VBox/Bottom/VBox/Password/HBox/Password" to="." method="_on_password_text_changed"]
+[connection signal="text_submitted" from="Slides/Connect/VBox/Bottom/VBox/Password/HBox/Password" to="." method="_line_edit_text_submitted"]
+[connection signal="pressed" from="Slides/Connect/VBox/Bottom/VBox/Password/Enter_Password" to="." method="_on_enter_password_pressed"]
+[connection signal="tab_selected" from="Slides/Lobby/VBox/TabContainer" to="." method="_on_tab_container_tab_selected"]
+[connection signal="item_selected" from="Slides/Lobby/VBox/TabContainer/Lobby_Data/VBox/HBox/Lobby_Type/Lobby_Type" to="." method="_on_lobby_type_item_selected"]
+[connection signal="pressed" from="Slides/Lobby/VBox/TabContainer/Lobby_Data/VBox/VBox/Game_Key/Copy" to="." method="_on_copy_pressed"]
+[connection signal="pressed" from="Slides/Lobby/VBox/TabContainer/Send_Scheme_Test/VBox/Buttons/SS_Test" to="." method="_on_ss_test_pressed"]
+[connection signal="pressed" from="Slides/Lobby/VBox/TabContainer/Send_Scheme_Test/VBox/Buttons/Copy_SS_CSV" to="." method="_on_copy_ss_csv_pressed"]
+[connection signal="pressed" from="Slides/Lobby/VBox/Buttons/Quit_Lobby" to="." method="_on_quit_lobby_pressed"]
+[connection signal="pressed" from="Slides/Lobby/VBox/Buttons/Lock_Lobby" to="." method="_on_lock_lobby_pressed"]
+[connection signal="pressed" from="Slides/Lobby/VBox/Buttons/Change_Scene" to="." method="_on_change_scene_pressed"]

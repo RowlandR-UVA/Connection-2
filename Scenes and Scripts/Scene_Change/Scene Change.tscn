@@ -1,0 +1,54 @@
+[gd_scene load_steps=2 format=3 uid="uid://bx7st5gpkxuvw"]
+
+[ext_resource type="Script" path="res://Scenes and Scripts/Scene_Change/Scene Change.gd" id="1_ktso7"]
+
+[node name="Scene_Change" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ktso7")
+
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Back_to_Main" type="Button" parent="HBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Back to Main"
+
+[node name="Quit" type="Button" parent="HBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Quit"
+
+[node name="Color_Change" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 188.0
+offset_right = 496.0
+offset_bottom = 246.0
+scale = Vector2(2, 2)
+
+[node name="HBox" type="HBoxContainer" parent="Color_Change"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Color_Change/HBox"]
+layout_mode = 2
+text = "Color Change: "
+
+[node name="ColorRect" type="ColorRect" parent="Color_Change/HBox"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="Color_Change" type="Button" parent="Color_Change"]
+layout_mode = 2
+text = "Change"
+
+[connection signal="pressed" from="HBox/Back_to_Main" to="." method="_on_back_to_main_pressed"]
+[connection signal="pressed" from="HBox/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Color_Change/Color_Change" to="." method="_on_color_change_pressed"]

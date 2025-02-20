@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjv1d8i5vajk3"]
+
+[ext_resource type="Texture2D" uid="uid://c6xklhtnrils4" path="res://Steam/Assets/Skull and Crossbones.png" id="1_s25qp"]
+[ext_resource type="Script" path="res://Steam/Scenes and Scripts/Pirating Scene.gd" id="1_x3v1w"]
+
+[node name="Pirating Scene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x3v1w")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 609.0
+color = Color(0, 0, 0, 1)
+
+[node name="Skull and Bones" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 600.0
+texture = ExtResource("1_s25qp")
+expand_mode = 1
+stretch_mode = 5

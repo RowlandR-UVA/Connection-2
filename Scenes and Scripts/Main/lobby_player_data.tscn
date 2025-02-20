@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://cti4qtkpsoxp"]
+
+[ext_resource type="Script" path="res://Scenes and Scripts/Main/lobby_player_data.gd" id="1_lhgd6"]
+[ext_resource type="Texture2D" uid="uid://bv71kgoo370f0" path="res://Steam/Assets/Default Avatars/AVATAR_SMALL.png" id="2_b6kyy"]
+
+[node name="Lobby Player Data" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1024.0
+offset_bottom = -600.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 5
+script = ExtResource("1_lhgd6")
+
+[node name="Avatar" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_b6kyy")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Kick" type="Button" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "X"
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "MadMelon999 "
+
+[connection signal="pressed" from="Kick" to="." method="_on_kick_pressed"]
